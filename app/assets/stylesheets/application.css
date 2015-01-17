@@ -37,22 +37,82 @@ body {
   background-color: black;
 }
 
-.welcome h1{
+.big-logo{
+  margin-top: 20%;
+}
+
+.enter{
+  background-color: #7A2D96;
+  width: 100%;
   font-family: 'Arial Rounded MT Bold', 'Helvetica Rounded', Arial, sans-serif;
-  font-size: 50px;
+  font-size: 20px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 300;
+
+}
+
+.enter:hover{
+  background-color: #E8B444;
+
+}
+
+
+.welcome h1{
+  margin: 40px;
+  font-family: 'Arial Rounded MT Bold', 'Helvetica Rounded', Arial, sans-serif;
+  font-size: 15px;
   font-style: normal;
   font-variant: normal;
   font-weight: 300;
   text-shadow: 2px 2px yellow;
-  ; /* Color white with alpha 0.9*/
 }
 
-.intro{
+.intro p{
+  margin: 40px;
   font-family: 'Arial Rounded MT Bold', 'Helvetica Rounded', Arial, sans-serif;
-  font-size: 24px;
+  font-size: 15px;
   font-style: normal;
   font-variant: normal;
   font-weight: 300;
-  text-shadow: 1px 1px yellow;
+  color: yellow;
+  text-shadow: 2px 2px #874896;
+}
 
+.intro h4{
+  margin: 40px;
+
+  font-family: 'Arial Rounded MT Bold', 'Helvetica Rounded', Arial, sans-serif;
+  font-size: 25px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 500;
+  color: yellow;
+  text-shadow: 2px 2px #874896;
+
+}
+
+.concert-page {
+  margin: 40px;
+  font-family: 'Arial Rounded MT Bold', 'Helvetica Rounded', Arial, sans-serif;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 500;
+  color: yellow;
+  text-shadow: 2px 2px #874896;
+}
+
+.concert-page h1{
+  font-size: 40px;
+  color: yellow;
+}
+
+.concert-page h2{
+  font-size: 30px;
+  color: yellow;
+}
+
+.concert-page h3{
+  font-size: 30px;
+  color: yellow;
 }

@@ -1,6 +1,19 @@
-<h1><%= @concert.venue %></h1>
 
-<%= link_to "Play Phantasy Phishbowl!",  new_concert_prediction_path(@concert) %>
+<div class="row">
+  <hr>
+  <div class="large-12 columns intro concert-page">
+    <h1><%= @concert.venue %></h1>
+    <h2><%= @concert.concert_date %></h2>
+    <h3><%=@concert.city %> , <%= @concert.state %></h3>
+  </div>
+</div>
+
+<div class="row">
+  <div class="large-12 columns">
+    <%= link_to "Play Phantasy Phishbowl!",  new_concert_prediction_path(@concert), class: "button radius enter" %>
+  </div>
+</div>
+
 
 <h2>Predictions</h2>
 <ul>

@@ -1,3 +1,13 @@
-<h1>Dashboard Page</h1>
+<div class="row">
+  <hr>
+  <div class="large-12 columns intro">
+    <h4>Welcome!</h4>
+    <p>This site is currently under construction. Check back to make predictions on upcoming shows. For now, try your luck with a random concert!</p>
+  </div>
+</div>
 
-<%= link_to "Play with random concert", concert_path(@random_concert) %>
+<div class="row">
+  <div class="large-12 columns">
+    <%= link_to "Play with random concert", concert_path(@random_concert), class: "button radius enter" %>
+  </div>
+</div>
