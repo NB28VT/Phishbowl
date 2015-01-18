@@ -16,9 +16,18 @@
  *= require chosen
 */
 
-body {
+body{
   background-color: black;
+}
 
+.prediction-form{
+  font-family: 'Arial Rounded MT Bold', 'Helvetica Rounded', Arial, sans-serif;
+  font-size: 15px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 300;
+  color: yellow;
+  text-shadow: 2px 2px #874896;
 }
 
 .splash-page{
