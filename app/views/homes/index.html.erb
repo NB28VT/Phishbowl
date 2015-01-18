@@ -1,30 +1,25 @@
-
-<div class="row">
-  <div class="large-12 columns logo ">
-    <p><%= image_tag("pbowllogo.png") %></p>
-    <p><%= image_tag("nb-super-ball.jpg", class: "logo-image" ) %></p>
-  </div>
-  <div class="row home">
-    <div class="large-12 columns">
-      <div class="panel">
-        <h4></h4>
+<body class="splash-page">
 
 
 
-        <div class="row">
-          <div class="large-9 columns">
-            <p>Phantasy Phishbowl is super awesome</p>
-          </div>
-          <div class="large-3 columns">
-            <a href="#" class="radius button right">Sign In</a>
-            <a href="#" class="radius button right">Sign Up</a>
-          </div>
-        </div>
-      </div>
 
-    </div>
-  </div>
 
+<div class="row big-logo">
+    <p><%= image_tag("phishbowl-full-logo.png") %></p>
 </div>
 
-<%= link_to "Enter!", dashboard_index_path %>
+<div class="row">
+  <hr>
+  <div class="large-12 columns intro">
+    <h4>Welcome to Phantasy Phishbowl!</h4>
+    <p>Prove your worth as the world's nerdiest Phishead in Phantasy Phishbowl: a game for testing your knowledge of the rock band Phish through the ages.</p>
+  </div>
+</div>
+
+<div class="row">
+  <div class="large-12 columns">
+    <%= link_to "Enter!", dashboard_index_path, class: "button radius enter" %>
+  </div>
+</div>
+
+</body>

@@ -72,6 +72,7 @@ class ConcertLoader
     song_index = 1
     set_array.each do |song|
       new_song = ConcertSong.find_or_initialize_by(
+      # getting not null on occasion.
       song_id: (Song.find_or_initialize_by(song_name: song)).id,
       play_index: song_index,
       set_index: set_index,
@@ -79,6 +80,7 @@ class ConcertLoader
       songs_in_set: set_array.count
       )
       song_index += 1
+      # breaking down here
       new_song.save!
     end
   end

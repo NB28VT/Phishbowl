@@ -1,5 +1,6 @@
 class PredictionsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create]
+  # AUTHENTICATION TURNED OFF
+  # before_action :authenticate_user!, only: [:new, :create]
 
   def new
     @prediction = Prediction.new
@@ -23,6 +24,7 @@ class PredictionsController < ApplicationController
     @prediction = Prediction.find(params[:id])
     @prediction_calculator = PredictionCalculator.new
     @prediction_score = @prediction_calculator.get_prediction_score(@prediction)
+    @concert = @prediction.concert
   end
 
   private

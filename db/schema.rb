@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150113223420) do
+ActiveRecord::Schema.define(version: 20150118202402) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 20150113223420) do
   end
 
   create_table "predictions", force: :cascade do |t|
-    t.integer "user_id",                null: false
+    t.integer "user_id"
     t.integer "concert_id",             null: false
     t.integer "set_one_opener_song_id", null: false
     t.integer "set_one_closer_song_id", null: false
