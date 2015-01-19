@@ -36,7 +36,7 @@ Acceptance criteria
 
     click_on "Check Score"
 
-    expect(page).to have_content ("Your score is...")
+    expect(page).to have_content ("Your score was")
   end
 
 
