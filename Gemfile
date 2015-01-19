@@ -29,4 +29,4 @@ gem 'nokogiri'
 gem 'pry-rails'
 gem 'chosen-rails'
 gem 'database_cleaner'
-gem 'rails_12factor'
+gem 'rails_12factor', group: :production
