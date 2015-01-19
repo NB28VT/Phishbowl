@@ -22,7 +22,7 @@ class SongLoader
     }
 
     song_rows.each do |song|
-      if song.children.children[2].text != "1"
+      # Now allowing one-time plays (fixes issue with shows not loaded into database)
         song_info = {}
         title = song.children.children[0].text
         artist = song.children.children[1].text
@@ -41,7 +41,6 @@ class SongLoader
 
         songs_hash[title] = song_info
       end
-    end
     # removes first row (column header)
     songs_hash.delete("Song Name")
     songs_hash

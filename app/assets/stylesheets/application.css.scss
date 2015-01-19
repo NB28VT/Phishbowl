@@ -19,22 +19,20 @@
 body{
   background-color: black;
   background-image: image-url('nb-super-ball3.jpg');
-}
-
-.prediction-form{
   font-family: 'Arial Rounded MT Bold', 'Helvetica Rounded', Arial, sans-serif;
-  font-size: 15px;
   font-style: normal;
   font-variant: normal;
   font-weight: 300;
   color: yellow;
   text-shadow: 2px 2px #874896;
-}
-
-.splash-page{
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
+
+}
+
+.prediction-form{
+  font-size: 15px;
 
 }
 
@@ -69,36 +67,16 @@ body{
 
 .welcome h1{
   margin: 40px;
-  font-family: 'Arial Rounded MT Bold', 'Helvetica Rounded', Arial, sans-serif;
   font-size: 15px;
-  font-style: normal;
-  font-variant: normal;
-  font-weight: 300;
-  text-shadow: 2px 2px yellow;
 }
 
 .intro p{
   margin: 40px;
-  font-family: 'Arial Rounded MT Bold', 'Helvetica Rounded', Arial, sans-serif;
   font-size: 15px;
-  font-style: normal;
-  font-variant: normal;
-  font-weight: 300;
-  color: yellow;
-  text-shadow: 2px 2px #874896;
 }
 
 .intro h4{
   margin: 40px;
-
-  font-family: 'Arial Rounded MT Bold', 'Helvetica Rounded', Arial, sans-serif;
-  font-size: 25px;
-  font-style: normal;
-  font-variant: normal;
-  font-weight: 500;
-  color: yellow;
-  text-shadow: 2px 2px #874896;
-
 }
 
 .concert-page {
