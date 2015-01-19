@@ -11,21 +11,21 @@
 <div class="row">
   <div class="large-12 columns">
     <%= link_to "Play Phantasy Phishbowl!",  new_concert_prediction_path(@concert), class: "button radius enter" %>
+    <div class="intro concert-page">
+      <h2>Predictions</h2>
+      <ul>
+        <% @concert.predictions.each do |picks| %>
+        <%= link_to "Check Score", concert_prediction_path(@concert, picks.id) %>
+        <li><%= picks.set_one_opener_song.song_name %></li>
+        <li><%= picks.set_one_closer_song.song_name %></li>
+        <li><%= picks.set_two_opener_song.song_name %></li>
+        <li><%= picks.set_two_closer_song.song_name %></li>
+        <li><%= picks.encore_song.song_name %></li>
+        <li><%= picks.random_pick_song.song_name %></li>
+        <% end %>
+      </ul>
+    </div>
   </div>
-</div>
 
 
-<div class="large-12 columns intro concert-page">
-  <h2>Predictions</h2>
-  <ul>
-    <% @concert.predictions.each do |picks| %>
-      <%= link_to "Check Score", concert_prediction_path(@concert, picks.id) %>
-      <li><%= picks.set_one_opener_song.song_name %></li>
-      <li><%= picks.set_one_closer_song.song_name %></li>
-      <li><%= picks.set_two_opener_song.song_name %></li>
-      <li><%= picks.set_two_closer_song.song_name %></li>
-      <li><%= picks.encore_song.song_name %></li>
-      <li><%= picks.random_pick_song.song_name %></li>
-    <% end %>
-  </ul>
 </div>
