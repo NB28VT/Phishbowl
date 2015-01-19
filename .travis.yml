@@ -1,0 +1,5 @@
+language: ruby
+rvm:
+  - 2.1.4p265  # replace this with the ruby version you are using in development
+before_script:
+  - psql -c 'create database phishbowl_test;' -U postgres
