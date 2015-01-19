@@ -18,6 +18,7 @@
 
 body{
   background-color: black;
+  background-image: image_url('nb-super-ball3.jpg');  
 }
 
 .prediction-form{
@@ -31,7 +32,6 @@ body{
 }
 
 .splash-page{
-  background-image: image-url('nb-super-ball3.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
