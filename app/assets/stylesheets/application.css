@@ -31,7 +31,7 @@ body{
 }
 
 .splash-page{
-  background-image: url(<%= asset_path 'nb-super-ball3.jpg' %>)
+  background-image: url(<%= asset_path 'nb-super-ball3.jpg' %>);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
