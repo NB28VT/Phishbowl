@@ -1,13 +1,51 @@
-<div class="row">
-  <hr>
-  <div class="large-12 columns intro">
-    <h4>Welcome!</h4>
-    <p>This site is currently under construction. Check back to make predictions on upcoming shows. For now, try your luck with a random concert!</p>
-  </div>
-</div>
 
 <div class="row">
-  <div class="large-12 columns">
-    <%= link_to "Play with random concert", concert_path(@random_concert), class: "button radius enter" %>
+  <div class="large-9 columns" role="content">
+
+    <%= image_tag("phishbowl-full-logo.png") %>
+
+
+      <div class="panel phishbowlpanel">
+        <h4 class="hide-for-small">How it works<hr/></h4>
+        <h5 class="subheader">Phantasy Phishbowl is an epic game setlist speculation for Phans of the band Phish. Here are the rules:</h5>
+        <ol>
+          <li>For each concert, a player predicts songs Phish will play on a given date.</li>
+          <li>Players must pick a set one opener and closer, a set two opener and closer, encore, and one random pick.</li>
+          <li>Players are awarded three points for getting a pick in the right spot, one point if the song appears anywhere in the setlist, and two points if the random pick is played.</li>
+          <li>When Phish is not on tour, players can guess which songs Phish during a randomly selected show.</li>
+        </ol>
+      </div>
+
+    <div class="panel phishbowlpanel">
+      <h5>Random Show Picker</h5>
+      <h6 class="subheader">Try and guess the setlist for a random show.</h6>
+      <%= link_to "Play with random concert", concert_path(@random_concert), class: "button radius enter" %>
+    </div>
+
+    <div class="panel phishbowlpanel">
+      <h5>About</h5>
+      <h6 class="subheader">More information on Phantasy Phishbowl</h6>
+      <a href="#" class="button radius enter">About</a>
+    </div>
+
+
   </div>
+
+
+  <aside class="large-3 columns">
+
+
+    <div class="panel setlistside">
+      <h5>Latest Show</h5>
+      <h6><%= @latest_setlist.concert_date %></h6>
+      <h6><%= @latest_setlist.city %> , <%= @latest_setlist.state %></h6>
+      <% @latest_setlist.songs.each do |song| %>
+      <ul>
+        <li><%= song.song_name %></li>
+      </ul>
+      <% end %>
+      <p></p>
+    </div>
+  </aside>
+
 </div>

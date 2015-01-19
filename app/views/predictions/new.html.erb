@@ -1,6 +1,13 @@
+
+<div class="row">
+
 <div class="large-12 columns intro concert-page">
 
-  <h1>Prediction Page</h1>
+  <h1><%= @concert.venue %></h1>
+  <h2><%= @concert.concert_date %></h2>
+  <h3><%=@concert.city %> , <%= @concert.state %></h3>
+
+  <h1>Make your picks</h1>
 
   <% if @prediction.errors.any? %>
   <h2>ERROR!</h2>
@@ -58,8 +65,10 @@
 
     <%= f.hidden_field :concert_id, value: @concert.id%>
 
-    <%= f.submit "Submit Predictions" %>
+    <%= f.submit "Submit Predictions", class: "button radius enter" %>
 
   <% end %>
+
+</div>
 
 </div>

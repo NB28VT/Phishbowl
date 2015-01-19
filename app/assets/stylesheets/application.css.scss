@@ -19,22 +19,30 @@
 body{
   background-color: black;
   background-image: image-url('nb-super-ball3.jpg');
-}
-
-.prediction-form{
   font-family: 'Arial Rounded MT Bold', 'Helvetica Rounded', Arial, sans-serif;
-  font-size: 15px;
   font-style: normal;
   font-variant: normal;
   font-weight: 300;
   color: yellow;
-  text-shadow: 2px 2px #874896;
-}
-
-.splash-page{
+  // text-shadow: 2px 2px #874896;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
+
+}
+
+.setlistside p{
+  font-size:14px;
+}
+
+.phishbowlpanel{
+  background: rgba(121,45,150,0.4);
+  border-radius: 30px;
+  margin-top: 20px;
+}
+
+.prediction-form{
+  font-size: 15px;
 
 }
 
@@ -47,11 +55,11 @@ body{
 }
 
 .big-logo{
-  margin-top: 20%;
+  margin-top: 10%;
 }
 
 .enter{
-  background-color: #7A2D96;
+  background-color: #E8B444;
   width: 100%;
   font-family: 'Arial Rounded MT Bold', 'Helvetica Rounded', Arial, sans-serif;
   font-size: 20px;
@@ -62,43 +70,31 @@ body{
 }
 
 .enter:hover{
-  background-color: #E8B444;
+  background-color: #7A2D96;
+}
 
+.checkscore{
+  margin-top: 10px;
 }
 
 
 .welcome h1{
   margin: 40px;
-  font-family: 'Arial Rounded MT Bold', 'Helvetica Rounded', Arial, sans-serif;
   font-size: 15px;
-  font-style: normal;
-  font-variant: normal;
-  font-weight: 300;
-  text-shadow: 2px 2px yellow;
 }
 
 .intro p{
   margin: 40px;
-  font-family: 'Arial Rounded MT Bold', 'Helvetica Rounded', Arial, sans-serif;
   font-size: 15px;
-  font-style: normal;
-  font-variant: normal;
-  font-weight: 300;
-  color: yellow;
-  text-shadow: 2px 2px #874896;
 }
 
 .intro h4{
   margin: 40px;
-
-  font-family: 'Arial Rounded MT Bold', 'Helvetica Rounded', Arial, sans-serif;
-  font-size: 25px;
-  font-style: normal;
-  font-variant: normal;
-  font-weight: 500;
   color: yellow;
-  text-shadow: 2px 2px #874896;
+}
 
+.prediction-form{
+  color: yellow;
 }
 
 .concert-page {

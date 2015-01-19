@@ -1,21 +1,23 @@
-<div class="large-12 columns intro concert-page">
-  <h1>Prediction Results Show Page</h1>
-  <h2>Your score is... <%= @prediction_score %> !</h2>
-  <h2>Actual setlist: </h2>
+<div class="row" >
+  <div class="large-12 columns intro concert-page">
+    <h1>Results</h1>
+    <h2>Your score was <%= @prediction_score %>!  Here's the real setlist: </h2>
+  </div>
 </div>
 
 <div class="row">
-  <hr>
-  <div class="large-12 columns intro concert-page">
+  <div class="panel phishbowlpanel">
     <h1><%= @concert.venue %></h1>
     <h2><%= @concert.concert_date %></h2>
     <h3><%=@concert.city %> , <%= @concert.state %></h3>
+    <hr/>
 
     <ul>
       <% @concert.songs.each do |song| %>
       <h3><%= song.song_name %></h3>
       <% end %>
     </ul>
-
   </div>
+
+  <%= link_to "Home", dashboard_index_path, class: "button radius enter" %>
 </div>
