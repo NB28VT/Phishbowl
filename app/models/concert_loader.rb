@@ -105,7 +105,7 @@ class ConcertLoader
     new_concert.save!
 
     load_songs_for_concert(concert_data_hash[:set_one_array], 1, new_concert)
-    
+
     if concert_data_hash[:set_two_array]
       load_songs_for_concert(concert_data_hash[:set_two_array], 2, new_concert)
     end
