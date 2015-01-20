@@ -1,5 +1,7 @@
 require 'rails_helper'
 
+# REFACTOR TO USE FACTORIES
+
 def concert_song_builder(song_name, play_index, set_index, new_show, songs_in_set)
   ConcertSong.create(
   song_id: Song.find_by(song_name: song_name).id,

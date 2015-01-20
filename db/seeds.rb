@@ -11,10 +11,11 @@ end
 
 
 10.times do
+  puts "Loading random concerts into database"
   begin
     concert = RandomConcertGenerator.new
     @random_concert = concert.generate_random_concert
-  rescue PG::NotNullViolation
+  rescue PG::Error
     puts "ERROR"
     retry
   end
