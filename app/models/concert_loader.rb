@@ -55,7 +55,14 @@ class ConcertLoader
     @setlist = scrape_set_html(setlist_data)
 
     concert_data_hash[:set_one_array] = parse_setlist(0)
-    concert_data_hash[:set_two_array] = parse_setlist(1)
+
+    # New checks for set two or encore.
+
+    if @setlist.css('p')[1]
+      concert_data_hash[:set_two_array] = parse_setlist(1)
+    else
+      concert_data_hash[:set_two_array] = nil
+    end
 
     if @setlist.css('p')[2]
       concert_data_hash[:encore_array] = parse_setlist(2)
@@ -72,7 +79,7 @@ class ConcertLoader
     song_index = 1
     set_array.each do |song|
       new_song = ConcertSong.find_or_initialize_by(
-      # getting not null on occasion.
+      # Look out for bug: was getting not null on song, seeded more to DB
       song_id: (Song.find_or_initialize_by(song_name: song)).id,
       play_index: song_index,
       set_index: set_index,
@@ -80,7 +87,6 @@ class ConcertLoader
       songs_in_set: set_array.count
       )
       song_index += 1
-      # breaking down here
       new_song.save!
     end
   end
@@ -99,7 +105,10 @@ class ConcertLoader
     new_concert.save!
 
     load_songs_for_concert(concert_data_hash[:set_one_array], 1, new_concert)
-    load_songs_for_concert(concert_data_hash[:set_two_array], 2, new_concert)
+    
+    if concert_data_hash[:set_two_array]
+      load_songs_for_concert(concert_data_hash[:set_two_array], 2, new_concert)
+    end
 
     if concert_data_hash[:encore_array]
       load_songs_for_concert(concert_data_hash[:encore_array], 3, new_concert)
