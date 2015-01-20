@@ -1,5 +1,7 @@
 require 'rails_helper'
 
+# TEST NOT PASSING IN TEST ENVIRONMENT WITHOUT SONG DATABASE. CONSIDER SCRAPPING THIS TEST?
+
 RSpec.describe ConcertLoader, :type => :model do
   it "loads a recent show into the database" do
     new_concert = ConcertLoader.new

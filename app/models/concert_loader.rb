@@ -77,7 +77,7 @@ class ConcertLoader
 
   def load_songs_for_concert(set_array, set_index, new_concert)
     song_index = 1
-    set_array.each do |song|
+    set_array.each do |song|      
       new_song = ConcertSong.find_or_initialize_by(
       # Look out for bug: was getting not null on song, seeded more to DB
       song_id: (Song.find_or_initialize_by(song_name: song)).id,
