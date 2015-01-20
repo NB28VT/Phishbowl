@@ -22,6 +22,7 @@
       <li>Encore: <%= picks.encore_song.song_name %></li>
       <li>Random Song: <%= picks.random_pick_song.song_name %></li>
       <%= link_to "Check Score", concert_prediction_path(@concert, picks.id), class: "button radius enter checkscore" %>
+      <%= link_to "Edit", edit_concert_prediction_path(@concert, picks.id), class: "button radius enter checkscore" %>
       <% end %>
     </ul>
     </div>

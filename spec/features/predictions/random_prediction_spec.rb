@@ -40,11 +40,26 @@ Acceptance criteria
   end
 
 
-  scenario "A user can edit predictions for a random show" do
-
-
-
-
-
-  end
+  # scenario "A user can edit predictions for a random show" do
+  #   user = FactoryGirl.create(:user)
+  #
+  #   prediction = FactoryGirl.create(:prediction)
+  #
+  #   sign_in_as(user)
+  #
+  #   visit concert_path(prediction.concert)
+  #
+  #   click_on "Edit"
+  #
+  #   select('A Song I Heard the Ocean Sing', from: "Set One Opener")
+  #   select("Kill Devil Falls", from: "Set One Closer")
+  #   select("Golden Age", from: "Set Two Opener")
+  #   select("Harry Hood", from: "Set Two Closer")
+  #   select("Harry Hood", from: "Encore")
+  #   select("Free", from: "Random Pick")
+  #
+  #   click_on "Submit Predictions"
+  #
+  #   expect(page).to have_content ("A Song I Heard the Ocean Sing")
+  # end
 end

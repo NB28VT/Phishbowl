@@ -8,3 +8,15 @@ song_hash.each do |song_data|
   song.song_name = song_data[0]
   song.save!
 end
+
+
+10.times do
+  begin
+    concert = RandomConcertGenerator.new
+    @random_concert = concert.generate_random_concert
+  rescue PG::NotNullViolation
+    puts "ERROR"
+    retry
+  end
+  sleep(120)
+end

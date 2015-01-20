@@ -1,5 +1,10 @@
 class RandomConcertGenerator
 
+  def pull_random_concert_from_database
+    random_id = rand(Concert.count)
+    rand_record = Concert.where(id: random_id).first
+  end
+
   def generate_random_concert
     new_concert = ConcertLoader.new
     new_concert.concert_builder(
