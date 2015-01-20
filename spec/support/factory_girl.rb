@@ -13,6 +13,7 @@ FactoryGirl.define do
     state 'VT'
     city 'Burlington'
     venue 'Flynn Theatre'
+
   end
 
   factory :prediction do
@@ -25,4 +26,20 @@ FactoryGirl.define do
 
     concert
   end
+
+  factory :concert_song do
+    song_id '1'
+    play_index '1'
+    set_index '1'
+    concert_id '1'
+    songs_in_set '3'
+
+    song
+  end
+
+  factory :song do
+    sequence (:song_name) {|n| "AwesomeSong#{n}" }
+    artist_name "Phish"
+  end
+
 end

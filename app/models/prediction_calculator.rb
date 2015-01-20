@@ -1,7 +1,6 @@
 class PredictionCalculator
 
   def pick_checker(play_index, set_index, prediction_song)
-
     song = @concert.concert_songs.where(
       play_index: play_index,
       set_index: set_index
