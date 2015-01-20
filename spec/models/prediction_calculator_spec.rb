@@ -17,12 +17,12 @@ RSpec.describe PredictionCalculator, :type => :model do
     encore = FactoryGirl.create(:concert_song, concert_id: concert.id, set_index: 3, play_index: 1)
 
     prediction = FactoryGirl.create(:prediction,
-      set_one_opener_song_id: set_one_opener.id,
-      set_one_closer_song_id: set_one_closer.id,
-      set_two_opener_song_id: set_two_opener.id,
-      set_two_closer_song_id: set_two_closer.id,
-      encore_song_id: encore.id,
-      random_pick_song_id: random_song_one.id,
+      set_one_opener_song_id: set_one_opener.song_id,
+      set_one_closer_song_id: set_one_closer.song_id,
+      set_two_opener_song_id: set_two_opener.song_id,
+      set_two_closer_song_id: set_two_closer.song_id,
+      encore_song_id: encore.song_id,
+      random_pick_song_id: random_song_one.song_id,
       concert_id: concert.id
       )
 
