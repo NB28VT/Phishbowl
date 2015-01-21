@@ -25,6 +25,8 @@ class PredictionsController < ApplicationController
     @prediction = Prediction.find(params[:id])
     @prediction_calculator = PredictionCalculator.new
     @prediction_score = @prediction_calculator.get_prediction_score(@prediction)
+    @songs_in_right_place = @prediction_calculator.songs_in_right_place
+    @songs_played_out_of_place = @prediction_calculator.songs_played_out_of_place
     @concert = @prediction.concert
   end
 

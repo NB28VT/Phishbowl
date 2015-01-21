@@ -28,6 +28,6 @@ RSpec.describe PredictionCalculator, :type => :model do
     calculator = PredictionCalculator.new
 
     expect(calculator.get_prediction_score(prediction)).to eq(17)
-    expect(calculator.songs_in_right_place).to include(set_one_opener.song)
+    expect(calculator.songs_in_right_place).to include(set_one_opener.song.song_name)
   end
 end

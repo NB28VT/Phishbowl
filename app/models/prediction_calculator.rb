@@ -16,10 +16,10 @@ class PredictionCalculator
 
     if prediction_song == song
       @prediction_score += 3
-      @songs_in_right_place << song
+      @songs_in_right_place << song.song_name
     elsif @concert.concert_songs.include?(prediction_song)
       @prediction_score += 1
-      @songs_played_out_of_place << song
+      @songs_played_out_of_place << song.song_name
     end
   end
 
@@ -30,9 +30,9 @@ class PredictionCalculator
   end
 
   def check_random_pick(prediction)
-    if @concert.concert_songs.any? { |song_id| song_id = prediction.random_pick_song.id }
+    if @concert.concert_songs.any?{ |song| song.song_id = prediction.random_pick_song.id}
       @prediction_score += 2
-      @songs_played_out_of_place << prediction.random_pick_song
+      @songs_played_out_of_place << prediction.random_pick_song.song_name
     end
   end
 
