@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :concerts, only: [:index, :show, :new] do
     resources :predictions, only: [:new, :create, :show, :edit, :update]
   end
+  resources :about, only: [:index]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
