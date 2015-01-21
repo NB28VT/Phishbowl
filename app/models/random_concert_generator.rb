@@ -1,7 +1,7 @@
 class RandomConcertGenerator
 
   def pull_random_concert_from_database
-    random_id = rand(Concert.count)
+    random_id = rand(Concert.count) + 1
     rand_record = Concert.where(id: random_id).first
   end
 

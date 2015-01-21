@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-# TEST NOT PASSING IN TEST ENVIRONMENT WITHOUT SONG DATABASE. CONSIDER SCRAPPING THIS TEST?
+# TEST NOT PASSING IN TEST ENVIRONMENT WITHOUT SONG PRE-LOADING SONG DATABASE. CONSIDER SCRAPPING THIS TEST?
 
 RSpec.describe ConcertLoader, :type => :model do
   it "loads a recent show into the database" do
