@@ -1,6 +1,5 @@
 require 'rails_helper'
 
-
 feature "Prediction on random show", %(
 As a Phishead
 I'd like to guess a setlist for a random show
@@ -9,10 +8,7 @@ Acceptance criteria
 [ ] The app can load a random show onto the show page
 [ ] A user can vist the prediction page for that show
 
-
 ) do
-
-
   scenario "A user can check predictions against a random show" do
 
     user = FactoryGirl.create(:user)
@@ -25,7 +21,6 @@ Acceptance criteria
     FactoryGirl.create(:concert_song, concert_id: concert.id, set_index: 2, play_index: 2)
     FactoryGirl.create(:concert_song, concert_id: concert.id, set_index: 2, play_index: 3)
     FactoryGirl.create(:concert_song, concert_id: concert.id, set_index: 3, play_index: 1)
-
 
     song = ConcertSong.first.song
 
@@ -46,7 +41,6 @@ Acceptance criteria
 
     expect(page).to have_content ("Your score was")
   end
-
 
   scenario "A user can edit predictions for a random show" do
     user = FactoryGirl.create(:user)

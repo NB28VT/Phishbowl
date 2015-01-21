@@ -1,5 +1,4 @@
 class PredictionCalculator
-
   def pick_checker(play_index, set_index, prediction_song)
     song = @concert.concert_songs.where(
       play_index: play_index,
@@ -20,7 +19,7 @@ class PredictionCalculator
   end
 
   def check_random_pick(prediction)
-    if @concert.concert_songs.any?{ |song_id| song_id = prediction.random_pick_song.id }
+    if @concert.concert_songs.any? { |song_id| song_id = prediction.random_pick_song.id }
       @prediction_score += 2
     end
   end

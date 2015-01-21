@@ -23,7 +23,6 @@ FactoryGirl.define do
     set_two_closer_song_id '567'
     encore_song_id '564'
     random_pick_song_id '321'
-    
   end
 
   factory :concert_song do
@@ -37,8 +36,7 @@ FactoryGirl.define do
   end
 
   factory :song do
-    sequence (:song_name) {|n| "AwesomeSong#{n}" }
+    sequence (:song_name) { |n| "AwesomeSong#{n}" }
     artist_name "Phish"
   end
-
 end
