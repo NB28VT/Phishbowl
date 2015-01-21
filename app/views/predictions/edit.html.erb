@@ -1,4 +1,3 @@
-
 <div class="row">
 
   <div class="large-12 columns intro concert-page">
@@ -10,13 +9,12 @@
     <h1>Make your picks</h1>
 
     <% if @prediction.errors.any? %>
-    <h2>ERROR!</h2>
-    <ul>
-      <% @prediction.errors.full_messages.each do |error_msg| %>
-      <li><%= error_msg %></li>
-      <% end %>
-    </ul>
-
+      <h2>ERROR!</h2>
+      <ul>
+        <% @prediction.errors.full_messages.each do |error_msg| %>
+        <li><%= error_msg %></li>
+        <% end %>
+      </ul>
     <% end %>
 
     <%= form_for ([@concert, @prediction]) do |f| %>
