@@ -14,7 +14,8 @@ class PredictionsController < ApplicationController
     @concert = Concert.find(params[:concert_id])
 
     if @prediction.save
-      redirect_to (concert_path(@concert)), notice: "Predictions submitted!"
+      redirect_to (concert_path(@concert)),
+        notice: "Predictions submitted! Click 'Check Score' to see your score!"
     else
       render 'new'
     end
