@@ -3,11 +3,10 @@ require 'rails_helper'
 RSpec.describe PredictionCalculator, :type => :model do
 
   it "Calculates a prediction score for maximum points" do
-
-
     user = FactoryGirl.create(:user)
 
     concert = FactoryGirl.create(:concert)
+
     set_one_opener = FactoryGirl.create(:concert_song, concert_id: concert.id, set_index: 1, play_index: 1)
     random_song_one = FactoryGirl.create(:concert_song, concert_id: concert.id, set_index: 1, play_index: 2)
     set_one_closer = FactoryGirl.create(:concert_song, concert_id: concert.id, set_index: 1, play_index: 3)

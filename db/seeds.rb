@@ -9,7 +9,6 @@ song_hash.each do |song_data|
   song.save!
 end
 
-
 10.times do
   puts "Loading random concerts into database"
   begin

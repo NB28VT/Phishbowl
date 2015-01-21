@@ -1,14 +1,9 @@
 class SongLoader
-
   def load_song_table
-    # NEED EXCEPTION HANDLING HERE
-
     load_song_page = HTTParty.get("http://phish.net/song/")
     parsed_song_page = Nokogiri::HTML(load_song_page)
     song_rows = parsed_song_page.css('tr')
-
     songs_hash = {}
-
     # Accounts for songs with trunacated names on scraped web page
     truncated_song_hash = {
       "Big Black Furry Creature from ..." => "Big Black Furry Creature from Mars",
@@ -22,25 +17,25 @@ class SongLoader
     }
 
     song_rows.each do |song|
-      # Now allowing one-time plays (fixes issue with shows not loaded into database)
-        song_info = {}
-        title = song.children.children[0].text
-        artist = song.children.children[1].text
-        if song.children.children[5]
-          gap = song.children.children[5].text
-        else
-          gap = nil
-        end
+      song_info = {}
+      title = song.children.children[0].text
+      artist = song.children.children[1].text
 
-        if truncated_song_hash.has_key?(title)
-          title = truncated_song_hash[title]
-        end
-
-        song_info["artist"] = artist
-        song_info["gap"] = gap
-
-        songs_hash[title] = song_info
+      if song.children.children[5]
+        gap = song.children.children[5].text
+      else
+        gap = nil
       end
+
+      if truncated_song_hash.has_key?(title)
+        title = truncated_song_hash[title]
+      end
+
+      song_info["artist"] = artist
+      song_info["gap"] = gap
+
+      songs_hash[title] = song_info
+    end
     # removes first row (column header)
     songs_hash.delete("Song Name")
     songs_hash
