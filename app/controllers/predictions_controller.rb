@@ -28,7 +28,21 @@ class PredictionsController < ApplicationController
   end
 
   def edit
+    @song_list = Song.all
     @prediction = Prediction.find(params[:id])
+    @concert = @prediction.concert
+  end
+
+  def update
+    # @user = User.find(current_user.id)
+    @prediction = Prediction.find(params[:id])
+    @concert = @prediction.concert
+
+    if @prediction.save
+      redirect_to (concert_path(@concert)), notice: "Picks updated!"
+    else
+      render 'edit'
+    end
   end
 
   private
