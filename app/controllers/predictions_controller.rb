@@ -27,6 +27,10 @@ class PredictionsController < ApplicationController
     @concert = @prediction.concert
   end
 
+  def edit
+    @prediction = Prediction.find(params[:id])
+  end
+
   private
 
   def prediction_params

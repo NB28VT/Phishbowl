@@ -52,7 +52,7 @@ RSpec.configure do |config|
   # https://relishapp.com/rspec/rspec-rails/docs
   config.infer_spec_type_from_file_location!
   config.include AuthenticationHelper
-  config.before(:suite) do
-    require "#{Rails.root}/db/seeds.rb"
-  end
+  # config.before(:suite) do
+  #   require "#{Rails.root}/db/seeds.rb"
+  # end
 end
