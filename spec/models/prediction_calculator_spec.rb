@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe PredictionCalculator, :type => :model do
 
-  it "Calculates a prediction score for maximum points" do
+  it "Calculates a prediction score for maximum points and returns song in right place" do
     user = FactoryGirl.create(:user)
 
     concert = FactoryGirl.create(:concert)
@@ -28,5 +28,6 @@ RSpec.describe PredictionCalculator, :type => :model do
     calculator = PredictionCalculator.new
 
     expect(calculator.get_prediction_score(prediction)).to eq(17)
+    expect(calculator.songs_in_right_place).to include(set_one_opener.song)
   end
 end
