@@ -1,10 +1,9 @@
 class PredictionCalculator
-  attr_accessor :songs_in_right_place, :songs_played_out_of_place
+  attr_accessor :correct_songs
 
-  # Song arrays for JS text highlighting
+  # Song array for JS text highlighting
   def initialize
-    @songs_in_right_place = []
-    @songs_played_out_of_place = []
+    @correct_songs = []
   end
 
   def pick_checker(play_index, set_index, prediction_song)
@@ -15,10 +14,10 @@ class PredictionCalculator
 
     if prediction_song == song
       @prediction_score += 3
-      @songs_in_right_place << song.song_name
+      @correct_songs << song.song_name
     elsif @concert.concert_songs.include?(prediction_song)
       @prediction_score += 1
-      @songs_played_out_of_place << song.song_name
+      @correct_songs << song.song_name
     end
   end
 
@@ -31,7 +30,7 @@ class PredictionCalculator
   def check_random_pick(prediction)
     if @concert.songs.include?(prediction.random_pick_song)
       @prediction_score += 2
-      @songs_played_out_of_place << prediction.random_pick_song.song_name
+      @correct_songs << prediction.random_pick_song.song_name
     end
   end
 
