@@ -2,7 +2,6 @@ class PredictionCalculator
   attr_accessor :songs_in_right_place, :songs_played_out_of_place
 
   # Song arrays for JS text highlighting
-
   def initialize
     @songs_in_right_place = []
     @songs_played_out_of_place = []
@@ -48,10 +47,6 @@ class PredictionCalculator
   def get_prediction_score(prediction)
     @concert = prediction.concert
     @prediction_score = 0
-
-    # THERE'S A BUG IN HERE THAT'S ASSIGNING
-
-    # HANDLE EXCEPTIONS FOR CONCERTS WITH LESS THAN 3 SETS HERE
 
     pick_checker(1, 1, prediction.set_one_opener_song)
     pick_checker(songs_in_first_set, 1, prediction.set_one_closer_song)

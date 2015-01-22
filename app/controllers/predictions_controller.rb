@@ -37,6 +37,7 @@ class PredictionsController < ApplicationController
   end
 
   def update
+    # TURNED OFF AUTHENTICATION
     # @user = User.find(current_user.id)
     @prediction = Prediction.find(params[:id])
     @concert = @prediction.concert

@@ -1,5 +1,6 @@
 class DashboardController < ApplicationController
   def index
+    # TOOK OUT BUGGY RANDOM CONCERT CALLS FOR NOW
     # concert = RandomConcertGenerator.new
     # @random_concert = concert.pull_random_concert_from_database
 
