@@ -13,4 +13,5 @@
 //= require jquery
 //= require jquery_ujs
 //= require foundation
+//= require song_highlight
 //= require_tree .

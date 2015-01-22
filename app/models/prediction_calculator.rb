@@ -1,4 +1,13 @@
 class PredictionCalculator
+  attr_accessor :songs_in_right_place, :songs_played_out_of_place
+
+  # Song arrays for JS text highlighting
+
+  def initialize
+    @songs_in_right_place = []
+    @songs_played_out_of_place = []
+  end
+
   def pick_checker(play_index, set_index, prediction_song)
     song = @concert.concert_songs.where(
       play_index: play_index,
@@ -7,8 +16,10 @@ class PredictionCalculator
 
     if prediction_song == song
       @prediction_score += 3
+      @songs_in_right_place << song.song_name
     elsif @concert.concert_songs.include?(prediction_song)
       @prediction_score += 1
+      @songs_played_out_of_place << song.song_name
     end
   end
 
@@ -19,8 +30,9 @@ class PredictionCalculator
   end
 
   def check_random_pick(prediction)
-    if @concert.concert_songs.any? { |song_id| song_id = prediction.random_pick_song.id }
+    if @concert.concert_songs.any?{ |song| song.song_id = prediction.random_pick_song.id}
       @prediction_score += 2
+      @songs_played_out_of_place << prediction.random_pick_song.song_name
     end
   end
 
@@ -32,9 +44,12 @@ class PredictionCalculator
     (@concert.concert_songs.where(set_index: 2).first).songs_in_set
   end
 
+
   def get_prediction_score(prediction)
     @concert = prediction.concert
     @prediction_score = 0
+
+    # HANDLE EXCEPTIONS FOR CONCERTS WITH LESS THAN 3 SETS HERE
 
     pick_checker(1, 1, prediction.set_one_opener_song)
     pick_checker(songs_in_first_set, 1, prediction.set_one_closer_song)

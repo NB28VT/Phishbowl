@@ -13,8 +13,8 @@
     <hr/>
 
     <ul>
-      <% @concert.songs.each do |song| %>
-      <h3><%= song.song_name %></h3>
+      <% @concert.concert_songs.each do |concert_song| %>
+        <h3><%= concert_song.song.song_name %></h3>
       <% end %>
     </ul>
   </div>
@@ -22,3 +22,7 @@
   <%= link_to "Home", dashboard_index_path, class: "button radius enter" %>
 
 </div>
+
+<script type="text/javascript">
+  var correctSongs = "setlist";
+</script>

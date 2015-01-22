@@ -75,8 +75,12 @@ class ConcertLoader
   # BUILDS CONCERT SONGS IN DATABASE
 
   def load_songs_for_concert(set_array, set_index, new_concert)
+    # EACH WITH INDEX REFACTOR start with 0? Set initial value
     song_index = 1
+
     set_array.each do |song|
+      # Song find or create by just song
+      # SLOW if scaled
       new_song = ConcertSong.find_or_initialize_by(
       # Look out for bug: was getting not null on song, seeded more to DB
       song_id: (Song.find_or_initialize_by(song_name: song)).id,
