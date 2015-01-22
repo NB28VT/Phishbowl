@@ -13,8 +13,8 @@
     <hr/>
 
     <ul>
-      <% @concert.songs.each do |song| %>
-      <h3><%= song.song_name %></h3>
+      <% @concert.concert_songs.each do |concert_song| %>
+        <h3><%= concert_song.song.song_name %></h3>
       <% end %>
     </ul>
   </div>
@@ -24,5 +24,5 @@
 </div>
 
 <script type="text/javascript">
-  var correctSongs = <%= @songs_played_out_of_place %>;
+  var correctSongs = "setlist";
 </script>

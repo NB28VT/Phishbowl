@@ -39,4 +39,4 @@ jQuery.fn.removeHighlight = function() {
 
 
 console.log(correctSongs);
-$('h3').highlight(correctSongs);
+$('h2').highlight(correctSongs);
