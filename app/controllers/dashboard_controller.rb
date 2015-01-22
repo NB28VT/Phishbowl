@@ -1,7 +1,7 @@
 class DashboardController < ApplicationController
   def index
-    concert = RandomConcertGenerator.new
-    @random_concert = concert.pull_random_concert_from_database
+    # concert = RandomConcertGenerator.new
+    # @random_concert = concert.pull_random_concert_from_database
 
     concert_loader = ConcertLoader.new
     @latest_setlist = concert_loader.concert_builder(
