@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   devise_for :users
   resources :dashboard, only: [:index]
   resources :concerts, only: [:index, :show, :new] do
-    resources :predictions, only: [:new, :create, :show, :edit, :update]
+    resources :predictions, only: [:new, :create, :show, :edit, :update, :destroy]
   end
   resources :about, only: [:index]
 
