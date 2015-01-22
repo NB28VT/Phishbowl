@@ -41,9 +41,12 @@ body{
   margin-top: 20px;
 }
 
+.prediction li{
+  height: 15px;
+}
+
 .prediction-form{
   font-size: 15px;
-
 }
 
 .top-bar-logo{
@@ -124,6 +127,6 @@ body{
 
 .highlight{
   background-color: green;
-  border-radius: 10px;
+  border-radius: 5px;
 
 }

@@ -37,6 +37,8 @@ jQuery.fn.removeHighlight = function() {
   }).end();
 };
 
-
 console.log(correctSongs);
-$('h2').highlight(correctSongs);
+
+correctSongs.forEach(function(song) {
+  $('li').highlight(song);
+});
