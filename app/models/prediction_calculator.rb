@@ -30,7 +30,7 @@ class PredictionCalculator
   end
 
   def check_random_pick(prediction)
-    if @concert.concert_songs.any?{ |song| song.song_id = prediction.random_pick_song.id}
+    if @concert.songs.include?(prediction.random_pick_song)
       @prediction_score += 2
       @songs_played_out_of_place << prediction.random_pick_song.song_name
     end
@@ -48,6 +48,8 @@ class PredictionCalculator
   def get_prediction_score(prediction)
     @concert = prediction.concert
     @prediction_score = 0
+
+    # THERE'S A BUG IN HERE THAT'S ASSIGNING
 
     # HANDLE EXCEPTIONS FOR CONCERTS WITH LESS THAN 3 SETS HERE
 
