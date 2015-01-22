@@ -33,10 +33,10 @@
       <h5>Latest Show</h5>
       <h6><%= @latest_setlist.concert_date %></h6>
       <h6><%= @latest_setlist.city %> , <%= @latest_setlist.state %></h6>
-      <% @latest_setlist.songs.each do |song| %>
-      <ul>
-        <li><%= song.song_name %></li>
-      </ul>
+      <% @latest_setlist.concert_songs.each do |concert_song| %>
+        <ul>
+          <li><%= concert_song.song.song_name %></li>
+        </ul>
       <% end %>
       <p></p>
     </div>
