@@ -10,14 +10,14 @@
           <li>For each concert, a player predicts songs Phish will play on a given date.</li>
           <li>Players must pick a set one opener and closer, a set two opener and closer, encore, and one random pick.</li>
           <li>Players are awarded three points for getting a pick in the right spot, one point if the song appears anywhere in the setlist, and two points if the random pick is played.</li>
-          <li>When Phish is not on tour, players can guess which songs Phish played during a randomly selected show.</li>
+          <li>When Phish is not on tour, players can guess which songs Phish played during a recent show.</li>
         </ol>
       </div>
 
     <div class="panel phishbowlpanel">
-      <h5>Random Show Picker</h5>
-      <h6 class="subheader">Try and guess the setlist for a random show.</h6>
-      <%= link_to "Play with random concert", concert_path(@random_concert), class: "button radius enter" %>
+      <h5>Play Phantasy Phishbowl</h5>
+      <h6 class="subheader">Practice with a recent show</h6>
+      <%= link_to "Play with recent concert", concert_path(@latest_setlist), class: "button radius enter" %>
     </div>
 
     <div class="panel phishbowlpanel">
@@ -33,10 +33,10 @@
       <h5>Latest Show</h5>
       <h6><%= @latest_setlist.concert_date %></h6>
       <h6><%= @latest_setlist.city %> , <%= @latest_setlist.state %></h6>
-      <% @latest_setlist.songs.each do |song| %>
-      <ul>
-        <li><%= song.song_name %></li>
-      </ul>
+      <% @latest_setlist.concert_songs.each do |concert_song| %>
+        <ul>
+          <li><%= concert_song.song.song_name %></li>
+        </ul>
       <% end %>
       <p></p>
     </div>

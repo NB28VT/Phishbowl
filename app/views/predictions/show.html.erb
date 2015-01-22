@@ -12,11 +12,12 @@
     <h3><%=@concert.city %> , <%= @concert.state %></h3>
     <hr/>
 
-    <ul>
-      <% @concert.concert_songs.each do |concert_song| %>
-        <h3><%= concert_song.song.song_name %></h3>
-      <% end %>
-    </ul>
+    <% @concert.concert_songs.each do |concert_song| %>
+        <ul>
+          <li><%= concert_song.song.song_name %></li>
+        </ul>
+    <% end %>
+
   </div>
 
   <%= link_to "Home", dashboard_index_path, class: "button radius enter" %>
