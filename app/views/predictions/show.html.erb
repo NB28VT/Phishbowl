@@ -2,13 +2,13 @@
   <div class="large-12 columns intro concert-page">
     <h1>Results</h1>
     <h2>
-      Your score was <%= @prediction_score %>!  Here's the real setlist (correct picks in green): 
+      Your score was <%= @prediction_score %>!  Here's the real setlist (correct picks in green):
       </h2>
   </div>
 </div>
 
 <div class="row">
-  <div class="panel phishbowlpanel">
+  <div class="panel phishbowlpanel prediction">
     <h1><%= @concert.venue %></h1>
     <h2><%= @concert.concert_date %></h2>
     <h3><%=@concert.city %> , <%= @concert.state %></h3>
