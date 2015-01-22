@@ -15,7 +15,7 @@ class PredictionCalculator
     if prediction_song == song
       @prediction_score += 3
       @correct_songs << song.song_name
-    elsif @concert.concert_songs.include?(prediction_song)
+    elsif @concert.songs.include?(prediction_song)
       @prediction_score += 1
       @correct_songs << song.song_name
     end
