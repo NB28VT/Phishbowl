@@ -15,14 +15,15 @@
     <h2>Predictions</h2>
     <ul>
       <% @concert.predictions.each do |picks| %>
-      <li>Set One Opener: <%= picks.set_one_opener_song.song_name %></li>
-      <li>Set One Closer: <%= picks.set_one_closer_song.song_name %></li>
-      <li>Set Two Opener: <%= picks.set_two_opener_song.song_name %></li>
-      <li>Set Two Closer: <%= picks.set_two_closer_song.song_name %></li>
-      <li>Encore: <%= picks.encore_song.song_name %></li>
-      <li>Random Song: <%= picks.random_pick_song.song_name %></li>
-      <%= link_to "Check Score", concert_prediction_path(@concert, picks.id), class: "button radius enter checkscore" %>
-      <%= link_to "Edit", edit_concert_prediction_path(@concert, picks.id), class: "button radius enter checkscore" %>
+        <li>Set One Opener: <%= picks.set_one_opener_song.song_name %></li>
+        <li>Set One Closer: <%= picks.set_one_closer_song.song_name %></li>
+        <li>Set Two Opener: <%= picks.set_two_opener_song.song_name %></li>
+        <li>Set Two Closer: <%= picks.set_two_closer_song.song_name %></li>
+        <li>Encore: <%= picks.encore_song.song_name %></li>
+        <li>Random Song: <%= picks.random_pick_song.song_name %></li>
+        <%= link_to "Check Score", concert_prediction_path(@concert, picks.id), class: "button radius enter checkscore" %>
+        <%= link_to "Edit", edit_concert_prediction_path(@concert, picks.id), class: "button radius enter checkscore" %>
+        <%= link_to "Delete", concert_prediction_path(@concert, picks.id), method: :delete, data: { confirm: 'Are you sure?' }, class: "button radius enter checkscore" %>
       <% end %>
     </ul>
     </div>

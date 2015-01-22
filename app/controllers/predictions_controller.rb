@@ -48,6 +48,13 @@ class PredictionsController < ApplicationController
     end
   end
 
+  def destroy
+    @prediction = Prediction.find(params[:id])
+    @concert = @prediction.concert
+    @prediction.destroy
+    redirect_to @concert
+  end
+
   private
 
   def prediction_params
