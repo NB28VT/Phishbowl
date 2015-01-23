@@ -1,5 +1,5 @@
 <div class="row" >
-  <div class="large-12 columns intro concert-page">
+  <div class="large-12 columns intro concert-page panel">
     <h1>Results</h1>
     <h2>
       Your score was <%= @prediction_score %>!  Here's the real setlist (correct picks in green):
@@ -22,6 +22,7 @@
 
   </div>
 
+  <%= link_to "Play Again!", concert_path(@concert), class: "button radius enter" %>
   <%= link_to "Home", dashboard_index_path, class: "button radius enter" %>
 
 </div>
