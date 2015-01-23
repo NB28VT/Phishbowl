@@ -1,7 +1,7 @@
 
 <div class="row">
   <hr>
-  <div class="large-12 columns intro concert-page">
+  <div class="large-12 columns intro concert-page phishbowlpanel">
     <h1><%= @concert.venue %></h1>
     <h2><%= @concert.concert_date %></h2>
     <h3><%=@concert.city %> , <%= @concert.state %></h3>
@@ -10,9 +10,9 @@
 </div>
 
 <div class="row">
-  <div class="large-4 columns intro concert-page">
+  <div class="large-4 columns intro concert-page phishbowlpanel">
 
-    <h2>Predictions</h2>
+    <h2>Prediction</h2>
     <ul>
       <% @concert.predictions.each do |picks| %>
         <li>Set One Opener: <%= picks.set_one_opener_song.song_name %></li>

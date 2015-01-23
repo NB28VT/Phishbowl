@@ -41,7 +41,7 @@ class PredictionsController < ApplicationController
     @prediction = Prediction.find(params[:id])
     @concert = @prediction.concert
 
-    if @prediction.save
+    if @prediction.update(prediction_params)
       redirect_to (concert_path(@concert)), notice: "Picks updated!"
     else
       render 'edit'
