@@ -17,7 +17,7 @@ class PredictionsController < ApplicationController
       redirect_to (concert_path(@concert)),
         notice: "Predictions submitted! Click 'Check Score' to see your score!"
     else
-      render 'new'
+      render :new
     end
   end
 
