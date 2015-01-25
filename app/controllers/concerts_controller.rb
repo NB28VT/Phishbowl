@@ -7,9 +7,4 @@ class ConcertsController < ApplicationController
     @concert = Concert.find(params[:id])
   end
 
-  private
-
-  def concert_params
-    params.require(:concert).permit(:venue, :date_time)
-  end
 end
