@@ -11,10 +11,4 @@ class Concert < ActiveRecord::Base
   # show loader class, intherit into specific calls
 
   # store in app models
-
-  def self.load_latest_show
-    show_loader(
-    "https://api.phish.net/api.json?api=2.0&method=pnet.shows.setlists.latest"
-    )
-  end
 end
