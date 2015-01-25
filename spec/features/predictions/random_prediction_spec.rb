@@ -1,5 +1,7 @@
 require 'rails_helper'
 
+# REFACTOR OUT REPITION IN THESE TESTS. BEFORE EACH DO
+
 feature "Prediction on show", %(
 As a Phishead
 I'd like to guess a setlist for a recent show
@@ -101,5 +103,39 @@ Acceptance criteria
     click_on "Submit Predictions"
 
     expect(page).to have_content (other_song.song_name)
+  end
+
+  scenario "A user can delete a prediction" do
+
+    user = FactoryGirl.create(:user)
+
+    concert = FactoryGirl.create(:concert)
+    FactoryGirl.create(:concert_song, concert_id: concert.id, set_index: 1, play_index: 1)
+    FactoryGirl.create(:concert_song, concert_id: concert.id, set_index: 1, play_index: 2)
+    FactoryGirl.create(:concert_song, concert_id: concert.id, set_index: 1, play_index: 3)
+    FactoryGirl.create(:concert_song, concert_id: concert.id, set_index: 2, play_index: 1)
+    FactoryGirl.create(:concert_song, concert_id: concert.id, set_index: 2, play_index: 2)
+    FactoryGirl.create(:concert_song, concert_id: concert.id, set_index: 2, play_index: 3)
+    FactoryGirl.create(:concert_song, concert_id: concert.id, set_index: 3, play_index: 1)
+
+    song = ConcertSong.first.song
+    other_song = ConcertSong.last.song
+
+    visit new_concert_prediction_path(concert)
+
+    select(song.song_name, from: "Set One Opener")
+    select(song.song_name, from: "Set One Closer")
+    select(song.song_name, from: "Set Two Opener")
+    select(song.song_name, from: "Set Two Closer")
+    select(song.song_name, from: "Encore")
+    select(other_song.song_name, from: "Random Pick")
+
+    click_on "Submit Predictions"
+
+    initial_prediction_count = Prediction.count
+  
+    click_on "Delete"
+
+    expect(Prediction.count).to eq(initial_prediction_count - 1)
   end
 end
