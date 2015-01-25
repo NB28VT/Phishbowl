@@ -44,7 +44,7 @@ class PredictionsController < ApplicationController
     if @prediction.update(prediction_params)
       redirect_to (concert_path(@concert)), notice: "Picks updated!"
     else
-      render 'edit'
+      render :edit
     end
   end
 
