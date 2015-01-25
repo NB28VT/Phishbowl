@@ -5,10 +5,4 @@ class Concert < ActiveRecord::Base
     through: :concert_songs
 
   validates :concert_date, uniqueness: true
-
-  Dotenv.load
-
-  # show loader class, intherit into specific calls
-
-  # store in app models
 end
