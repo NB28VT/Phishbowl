@@ -2,7 +2,6 @@ require 'rails_helper'
 
 RSpec.describe SongLoader, :type => :model do
   it "Scrapes Phish.net for a list of songs and enters them into the database" do
-    initial_song_count = Song.count
 
     loader = SongLoader.new
     song_hash = loader.load_song_table
@@ -15,6 +14,6 @@ RSpec.describe SongLoader, :type => :model do
       song.save!
     end
 
-    expect(Song.count).to be > initial_song_count
+    expect(Song.count).to be > 0
   end
 end

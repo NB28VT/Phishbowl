@@ -1,7 +1,5 @@
 require 'rails_helper'
 
-#NEEDS A SERIOUS REFACTOR
-
 feature "Prediction on show", %(
 As a Phishead
 I'd like to guess a setlist for a recent show
@@ -13,36 +11,33 @@ Acceptance criteria
 
 ) do
 
-  # REFACTOR TO LET BLOCK. ISSUES WITH PERSISTED DATA. WORK ON THIS
+  before(:each) do
+    @user = FactoryGirl.create(:user)
 
+    @concert = FactoryGirl.create(:concert)
+    FactoryGirl.create(:concert_song, concert_id: @concert.id, set_index: 1, play_index: 1)
+    FactoryGirl.create(:concert_song, concert_id: @concert.id, set_index: 1, play_index: 2)
+    FactoryGirl.create(:concert_song, concert_id: @concert.id, set_index: 1, play_index: 3)
+    FactoryGirl.create(:concert_song, concert_id: @concert.id, set_index: 2, play_index: 1)
+    FactoryGirl.create(:concert_song, concert_id: @concert.id, set_index: 2, play_index: 2)
+    FactoryGirl.create(:concert_song, concert_id: @concert.id, set_index: 2, play_index: 3)
+    FactoryGirl.create(:concert_song, concert_id: @concert.id, set_index: 3, play_index: 1)
+
+    @song = ConcertSong.first.song
+  end
 
   scenario "A user can check predictions against a random show" do
 
-    user = FactoryGirl.create(:user)
+    sign_in_as(@user)
 
-    concert = FactoryGirl.create(:concert)
-    FactoryGirl.create(:concert_song, concert_id: concert.id, set_index: 1, play_index: 1)
-    FactoryGirl.create(:concert_song, concert_id: concert.id, set_index: 1, play_index: 2)
-    FactoryGirl.create(:concert_song, concert_id: concert.id, set_index: 1, play_index: 3)
-    FactoryGirl.create(:concert_song, concert_id: concert.id, set_index: 2, play_index: 1)
-    FactoryGirl.create(:concert_song, concert_id: concert.id, set_index: 2, play_index: 2)
-    FactoryGirl.create(:concert_song, concert_id: concert.id, set_index: 2, play_index: 3)
-    FactoryGirl.create(:concert_song, concert_id: concert.id, set_index: 3, play_index: 1)
+    visit new_concert_prediction_path(@concert)
 
-    song = ConcertSong.first.song
-
-    user = FactoryGirl.create(:user)
-
-    sign_in_as(user)
-
-    visit new_concert_prediction_path(concert)
-
-    select(song.song_name, from: "Set One Opener")
-    select(song.song_name, from: "Set One Closer")
-    select(song.song_name, from: "Set Two Opener")
-    select(song.song_name, from: "Set Two Closer")
-    select(song.song_name, from: "Encore")
-    select(song.song_name, from: "Random Pick")
+    select(@song.song_name, from: "Set One Opener")
+    select(@song.song_name, from: "Set One Closer")
+    select(@song.song_name, from: "Set Two Opener")
+    select(@song.song_name, from: "Set Two Closer")
+    select(@song.song_name, from: "Encore")
+    select(@song.song_name, from: "Random Pick")
 
     click_on "Submit Predictions"
 
@@ -53,22 +48,9 @@ Acceptance criteria
 
   scenario "A user gets an error for not filling out prediciton fields" do
 
-    user = FactoryGirl.create(:user)
+    sign_in_as(@user)
 
-    concert = FactoryGirl.create(:concert)
-    FactoryGirl.create(:concert_song, concert_id: concert.id, set_index: 1, play_index: 1)
-    FactoryGirl.create(:concert_song, concert_id: concert.id, set_index: 1, play_index: 2)
-    FactoryGirl.create(:concert_song, concert_id: concert.id, set_index: 1, play_index: 3)
-    FactoryGirl.create(:concert_song, concert_id: concert.id, set_index: 2, play_index: 1)
-    FactoryGirl.create(:concert_song, concert_id: concert.id, set_index: 2, play_index: 2)
-    FactoryGirl.create(:concert_song, concert_id: concert.id, set_index: 2, play_index: 3)
-    FactoryGirl.create(:concert_song, concert_id: concert.id, set_index: 3, play_index: 1)
-
-    song = ConcertSong.first.song
-
-    sign_in_as(user)
-
-    visit new_concert_prediction_path(concert)
+    visit new_concert_prediction_path(@concert)
 
     click_on "Submit Predictions"
 
@@ -77,27 +59,16 @@ Acceptance criteria
 
 
   scenario "A user can edit predictions for a random show" do
-    user = FactoryGirl.create(:user)
 
-    concert = FactoryGirl.create(:concert)
-    FactoryGirl.create(:concert_song, concert_id: concert.id, set_index: 1, play_index: 1)
-    FactoryGirl.create(:concert_song, concert_id: concert.id, set_index: 1, play_index: 2)
-    FactoryGirl.create(:concert_song, concert_id: concert.id, set_index: 1, play_index: 3)
-    FactoryGirl.create(:concert_song, concert_id: concert.id, set_index: 2, play_index: 1)
-    FactoryGirl.create(:concert_song, concert_id: concert.id, set_index: 2, play_index: 2)
-    FactoryGirl.create(:concert_song, concert_id: concert.id, set_index: 2, play_index: 3)
-    FactoryGirl.create(:concert_song, concert_id: concert.id, set_index: 3, play_index: 1)
-
-    song = ConcertSong.first.song
     other_song = ConcertSong.last.song
 
-    visit new_concert_prediction_path(concert)
+    visit new_concert_prediction_path(@concert)
 
-    select(song.song_name, from: "Set One Opener")
-    select(song.song_name, from: "Set One Closer")
-    select(song.song_name, from: "Set Two Opener")
-    select(song.song_name, from: "Set Two Closer")
-    select(song.song_name, from: "Encore")
+    select(@song.song_name, from: "Set One Opener")
+    select(@song.song_name, from: "Set One Closer")
+    select(@song.song_name, from: "Set Two Opener")
+    select(@song.song_name, from: "Set Two Closer")
+    select(@song.song_name, from: "Encore")
     select(other_song.song_name, from: "Random Pick")
 
     click_on "Submit Predictions"
@@ -112,27 +83,16 @@ Acceptance criteria
   end
 
   scenario "A user can't edit predictions for a random show by leaving a blank field" do
-    user = FactoryGirl.create(:user)
 
-    concert = FactoryGirl.create(:concert)
-    FactoryGirl.create(:concert_song, concert_id: concert.id, set_index: 1, play_index: 1)
-    FactoryGirl.create(:concert_song, concert_id: concert.id, set_index: 1, play_index: 2)
-    FactoryGirl.create(:concert_song, concert_id: concert.id, set_index: 1, play_index: 3)
-    FactoryGirl.create(:concert_song, concert_id: concert.id, set_index: 2, play_index: 1)
-    FactoryGirl.create(:concert_song, concert_id: concert.id, set_index: 2, play_index: 2)
-    FactoryGirl.create(:concert_song, concert_id: concert.id, set_index: 2, play_index: 3)
-    FactoryGirl.create(:concert_song, concert_id: concert.id, set_index: 3, play_index: 1)
-
-    song = ConcertSong.first.song
     other_song = ConcertSong.last.song
 
-    visit new_concert_prediction_path(concert)
+    visit new_concert_prediction_path(@concert)
 
-    select(song.song_name, from: "Set One Opener")
-    select(song.song_name, from: "Set One Closer")
-    select(song.song_name, from: "Set Two Opener")
-    select(song.song_name, from: "Set Two Closer")
-    select(song.song_name, from: "Encore")
+    select(@song.song_name, from: "Set One Opener")
+    select(@song.song_name, from: "Set One Closer")
+    select(@song.song_name, from: "Set Two Opener")
+    select(@song.song_name, from: "Set Two Closer")
+    select(@song.song_name, from: "Encore")
     select(other_song.song_name, from: "Random Pick")
 
     click_on "Submit Predictions"
@@ -148,27 +108,14 @@ Acceptance criteria
 
   scenario "A user can delete a prediction" do
 
-    user = FactoryGirl.create(:user)
+    visit new_concert_prediction_path(@concert)
 
-    concert = FactoryGirl.create(:concert)
-    FactoryGirl.create(:concert_song, concert_id: concert.id, set_index: 1, play_index: 1)
-    FactoryGirl.create(:concert_song, concert_id: concert.id, set_index: 1, play_index: 2)
-    FactoryGirl.create(:concert_song, concert_id: concert.id, set_index: 1, play_index: 3)
-    FactoryGirl.create(:concert_song, concert_id: concert.id, set_index: 2, play_index: 1)
-    FactoryGirl.create(:concert_song, concert_id: concert.id, set_index: 2, play_index: 2)
-    FactoryGirl.create(:concert_song, concert_id: concert.id, set_index: 2, play_index: 3)
-    FactoryGirl.create(:concert_song, concert_id: concert.id, set_index: 3, play_index: 1)
-
-    song = ConcertSong.first.song
-
-    visit new_concert_prediction_path(concert)
-
-    select(song.song_name, from: "Set One Opener")
-    select(song.song_name, from: "Set One Closer")
-    select(song.song_name, from: "Set Two Opener")
-    select(song.song_name, from: "Set Two Closer")
-    select(song.song_name, from: "Encore")
-    select(song.song_name, from: "Random Pick")
+    select(@song.song_name, from: "Set One Opener")
+    select(@song.song_name, from: "Set One Closer")
+    select(@song.song_name, from: "Set Two Opener")
+    select(@song.song_name, from: "Set Two Closer")
+    select(@song.song_name, from: "Encore")
+    select(@song.song_name, from: "Random Pick")
 
     click_on "Submit Predictions"
 
