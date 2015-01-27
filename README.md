@@ -7,20 +7,20 @@ Phantasy Phishbowl is an app for predicting concert setlists for the rock band P
 You can try Phantasy Phishbowl at the following url: https://phantasyphishbowl.herokuapp.com/
 
 Dashboard page:
-![alt tag](dashboard-screenshot.png)
+![alt tag](/app/assets/images/dashboard-screenshot.png)
 
 Prediction page:
-![alt tag](prediction-screen-shot.png)
+![alt tag](/app/assets/images/prediction-screen-shot.png)
 
 Results:
-![alt tag](results-screen-shot.png)
+![alt tag](/app/assets/images/results-screen-shot.png)
 
 The app makes use of several open-source gems for testing and data parsing, including Rspec, FactoryGirl, and Nokogiri.
 
 
 ER diagram for this repo:
 
-![alt tag](phishbowl0.0.3 (1).jpg)
+![alt tag](/app/assets/images/phishbowl_0.0.3 (1).jpg)
 
 You can read a detailed tally of my Git workflow below:  
 
