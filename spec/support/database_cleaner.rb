@@ -17,7 +17,6 @@ RSpec.configure do |config|
   end
 
 end
-
-
-
-# TAKE OUT DB CLEANER?
+#
+# May be able to remove this code.
+# Only failing on concert builder call in song loader spec
