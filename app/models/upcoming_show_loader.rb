@@ -14,18 +14,9 @@ class UpcomingShowLoader
     end
   end
 
-  def json_parser(raw_concert)
-    begin
-      JSON.parse(raw_concert)
-    rescue JSON::JSONError
-      return false
-    end
+  def upcoming_shows
+    raw_concerts = web_request(@api_call)
+    # List of concerts is an array
+    # return raw_concerts
   end
-
-  def concert_loader
-    raw_concert = web_request(@api_call)
-    jsoned = json_parser(raw_concert)
-    return jsoned
-  end
-
 end
